@@ -1,6 +1,5 @@
 from openai import OpenAI
 from dotenv import load_dotenv
-from time import sleep
 import os
 
 # Carregar variáveis de ambiente do arquivo .env
@@ -17,16 +16,7 @@ def transcribe_audio(file_path):
     
     try:
         # 1 - Transcrever com Whisper
-        print(f'Iniciando transcrição do arquivo: {file_path}')
-        sleep(1)  # Pequena pausa para garantir que o arquivo esteja pronto para leitura
-
         with open(file_path, "rb") as audio_file:
-            print('Enviando arquivo para transcrição...')
-            sleep(1)
-            print('Aguardando resposta da API...')
-            sleep(1)
-            print('Processando transcrição...')
-            sleep(1)
             transcription = client.audio.transcriptions.create(
                 file=audio_file,
                 model="whisper-1"
@@ -40,8 +30,7 @@ def transcribe_audio(file_path):
         # 3 - Salvar o texto transcrito em um arquivo .txt
         with open(txt_path, 'w', encoding='utf-8') as txt_file:
             txt_file.write(text)
-        
-        print(f'Transcrição salva em: {txt_path}')
+       
         return text
     
     except Exception as e:
