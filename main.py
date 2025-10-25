@@ -1,6 +1,7 @@
 from baixar_audio import url_and_download as baixar_audio
 from converter_wav import convert_audio_wav as converter
 from transcrever_audio import transcribe_audio as transcrever
+from resumir_transcricao import summarize_transcript as resumir
 
 
 def main():
@@ -29,6 +30,14 @@ def main():
     else:
         print("Falha ao transcrever o áudio.")
         return None
+    
+    summary = resumir.summarize_transcript(transcribed_text)
+
+    if summary:
+        print(f"Resumo da transcrição:")
+        print(summary)
+    else:
+        print("Falha ao resumir a transcrição.")
 
 if __name__ == "__main__":
     main()

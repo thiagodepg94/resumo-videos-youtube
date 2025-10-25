@@ -31,7 +31,6 @@ def transcribe_audio(file_path):
                 file=audio_file,
                 model="whisper-1"
             )
-            print(f'Transcrição realizada com sucesso: {transcription.text}')
         
         text = transcription.text
 
@@ -43,7 +42,7 @@ def transcribe_audio(file_path):
             txt_file.write(text)
         
         print(f'Transcrição salva em: {txt_path}')
-        return text, txt_path
+        return text
     
     except Exception as e:
         print(f'Erro ao transcrever áudio: {e}')
