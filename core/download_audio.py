@@ -1,15 +1,6 @@
 from pytubefix import YouTube
 import os
 
-def get_video_url():
-    url = input("URL do vídeo: ")
-
-    while "youtube.com" not in url:
-        print("Por favor, insira uma URL válida do YouTube.")
-        url = input("URL do vídeo: ")
-
-    return url
-
 
 def download_audio(url):
     try:
