@@ -2,3 +2,4 @@ pytubefix
 ffmpeg-python
 openai
 python-dotenv
+tkinter
